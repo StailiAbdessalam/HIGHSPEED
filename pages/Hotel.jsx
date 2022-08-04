@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { FaChevronDown } from "react-icons/fa";
+import { BsArrowRight } from "react-icons/bs";
 const Hotel = () => {
     const data = {
         name: "Menara Palace",
@@ -33,7 +34,7 @@ const Hotel = () => {
         chambreType: [
             { Type: "chambre Single", Prix: "1400", device: "MAD" },
             { Type: "chambre Double", Prix: "1800", device: "MAD" },
-            { Type: "chambre junio", Prix: "2000", device: "MAD" }
+            { Type: "chambre junio", Prix: "2000", device: "MAD" },
         ]
     };
     const [next, setNext] = useState(true);
@@ -42,7 +43,8 @@ const Hotel = () => {
     const [hotel, setHotel] = useState({ data });
     const [numbre, setNumbre] = useState(1);
     const [model, setModel] = useState(null);
-    const affechModel = (imagSRC) => {
+    const affechModel = (imagSRC, e) => {
+        setNumbre(e.target.alt);
         setVisible(true);
         setModel(imagSRC);
     }
@@ -51,6 +53,7 @@ const Hotel = () => {
         setNext(numbre >= Object.keys(hotel.data.url).length ? false : true);
         setPrev(numbre <= 1 ? false : true);
     }, [numbre]);
+
     const suiverImage = async (type) => {
         if (type === "next") {
             setNumbre(numbre => numbre + 1);
@@ -62,6 +65,7 @@ const Hotel = () => {
         setVisible(false);
     };
     var count = (Object.keys(hotel.data.url).length) - 3;
+    var forheight = Object.keys(hotel.data.chambreType).length;
 
     return (
         <Container
@@ -100,11 +104,11 @@ const Hotel = () => {
                             >
                                 <Image
                                     src={hotel.data.url.photo1}
-                                    alt=""
+                                    alt="1"
                                     height="340px"
                                     width="100%"
                                     objectFit="cover"
-                                    onClick={() => affechModel(hotel.data.url.photo1)}
+                                    onClick={(e) => affechModel(hotel.data.url.photo1, e)}
                                 />
                                 <Spacer y={1 / 3} />
                             </Col>
@@ -114,22 +118,24 @@ const Hotel = () => {
                                     <Grid xs={12} md={6} css={{ cursor: "pointer" }} >
                                         <Image
                                             src={hotel.data.url.photo2}
-                                            alt=""
+                                            alt="2"
                                             height="340px"
                                             width="100%"
                                             objectFit="cover"
-                                            onClick={() => { affechModel(hotel.data.url.photo2) }}
+                                            onClick={(e) => { affechModel(hotel.data.url.photo2, e) }}
                                         />
+                                        {/* <Spacer x={1 / 3} /> */}
                                     </Grid>
-                                    <Grid xs={12} md={6} css={{ cursor: "pointer" }} onClick={() => { affechModel(hotel.data.url.photo3) }}>
+                                    <Grid xs={12} md={6} css={{ cursor: "pointer" }} onClick={(e) => { affechModel(hotel.data.url.photo3, e = { target: { alt: "3" } }) }}>
                                         <Col css={{ position: "relative", }}>
                                             <Image
                                                 src={hotel.data.url["photo3"]}
-                                                alt=""
+                                                alt="3"
                                                 height="340px"
                                                 width="100%"
                                                 objectFit="cover"
                                             />
+
                                             <Row css={{ backgroundColor: "rgba(172, 77, 77, 0.425)", width: "100%", height: "100%", position: "absolute", top: "0" }}>
                                                 <Text zIndex="90">
                                                 </Text>
@@ -175,13 +181,15 @@ const Hotel = () => {
                         </Col>
                         <Spacer x={2 / 3} />
                     </Grid>
-
                     {/* partie Gauche */}
+                    {/* <Spacer y={2} /> */}
                     <Grid xs={12} sm={6}>
                         <Col css={{
+                            marginTop: "20px",
                             border: "2px solid gray",
                             height: "600px"
-                            , '@md': {
+                            , '@sm': {
+                                marginTop: "140px",
                                 width: "100%",
                             }
                         }}>
@@ -198,11 +206,13 @@ const Hotel = () => {
                                     <Grid.Container>
                                         <Spacer x={2} />
                                         <Grid xs={12}>
+                                            <Spacer y={2} />
                                             <Text h4 >
                                                 Date d'araiver
                                             </Text>
                                             <Spacer y={2} />
                                         </Grid>
+                                        <Spacer y={2} />
                                         <Grid xs={4}>
                                             <Text>
                                                 {hotel.data.dataDarivee}
@@ -218,12 +228,14 @@ const Hotel = () => {
                                     <Grid.Container>
                                         <Spacer x={2} />
                                         <Grid xs={12}>
+                                            <Spacer y={2} />
                                             <Text h4 >
                                                 Date de depart
                                             </Text>
                                             <Spacer y={2} />
                                         </Grid>
                                         <Grid xs={4}>
+                                            <Spacer y={2} />
                                             <Text>
                                                 {hotel.data.dataDarivee}
                                             </Text>
@@ -232,9 +244,9 @@ const Hotel = () => {
                                 </Col>
                             </Row>
                             {/* affichage les information des chambres de hotel */}
-                            <Col css={{ borderBottom: "gray solid 2px" }}>
+                            <Col css={{ borderBottom: "gray solid 2px", height: "60%" }}>
                                 {hotel.data.chambreType.map((chambre, index) => (
-                                    <Row css={{ height: "100px" }}>
+                                    <Row css={{ height: `${100 / forheight + "%"}` }}>
                                         <Spacer y={2} />
                                         <Grid.Container>
                                             <Spacer x={2} />
@@ -262,30 +274,50 @@ const Hotel = () => {
                                     </Row>
                                 ))}
                             </Col>
-
                             {/* calcule total de prix de 3 joour */}
-                            <Text>
-                                <Row>
-                                    <Col css={{ padding: "14px 10px 0 14px" }}>
-                                        <Text >Total pour 3 nuits</Text>
-                                        <Text >Taxes de sejour</Text>
-                                        <Text h3>Total</Text>
 
-                                    </Col>
+                            <Row css={{ backgroundColor: "rgb(152, 202, 152)", height: "20%" }}>
+                                <Col>
+                                    <Grid.Container>
+                                        <Grid xs="6">
+                                            <Spacer x={1} />
+                                            <Col>
+                                                <Spacer x={2} />
+                                                <Text size={20} h4 >Total pour 3 nuits</Text>
+                                                <Spacer y={1 / 2} />
+                                                <Text size={17} >Taxes de sejour</Text>
+                                                <Spacer y={1 / 2} />
+                                                <Text h3>Total</Text>
+                                            </Col>
+                                        </Grid>
+                                        <Grid >
+                                            <Col>
+                                                <Spacer x={2} />
+                                                <Text size={20} h4 >17 100 MAD</Text>
+                                                <Spacer y={1 / 2} />
+                                                <Text size={17} >289 MAD</Text>
+                                                <Spacer y={1 / 2} />
+                                                <Text color="red" h3>20 900 MAD</Text>
+                                            </Col>
+                                        </Grid>
+                                        <Spacer x={1} />
 
-                                    <Col css={{ padding: "14px 10px 0 14px" }}>
-                                        <Text>1700 DH</Text>
-                                        <Text>230 DH</Text>
-                                        <Text>2000 DH</Text>
-                                        {/* <IoChevronDownOutline></IoChevronDownOutline> */}
-                                    </Col>
-                                </Row>
-                            </Text>
+                                    </Grid.Container>
+
+                                </Col>
+                            </Row>
+
+
                             {/* button de DISPONIBILITÉ */}
-                            <Row css={{ margin: "20px 0 0 0" }}>
-                                <Text css={{ padding: "30px", width: "100%", background: "rgb(179, 48, 48)", color: "rgb(243, 243, 243)" }}>
+                            <Spacer y={1} />
+                            <Row css={{ background: "rgb(179, 48, 48)" }}>
+                                <Spacer x={2} />
+                                <Text color="white" size={20} css={{ width: "100%" }}>
+                                    <Spacer y={2} />
                                     VÉRIFIER LA DISPONIBILITÉ
+                                    <Spacer y={2} />
                                 </Text>
+
                             </Row>
 
                         </Col>
