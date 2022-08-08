@@ -24,8 +24,8 @@ const Programme = () => {
                         <Spacer y={2} />
                         <Grid.Container>
                             {/* <Spacer y={2} /> */}
-                            <Grid xs={12} sm={6} lg={12}>
-                            <Text h6 size={16}>Catégorie</Text>
+                            <Grid xs={12} sm={6} md={12} >
+                                <Text h6 size={16}>Catégorie</Text>
                                 <Spacer x={2} />
                                 <Row css={{ width: "100%" }} >
                                     <Checkbox.Group
@@ -44,8 +44,8 @@ const Programme = () => {
                                 </Row>
                             </Grid>
                             {/* <Spacer y={2} /> */}
-                            <Grid xs={12} sm={6} lg={12}>
-                            <Text h6 size={16} >Thématique</Text>
+                            <Grid xs={12} sm={6} md={12} >
+                                <Text h6 size={16} >Thématique</Text>
                                 <Spacer x={2} />
                                 <Row>
                                     <Checkbox.Group
@@ -61,7 +61,6 @@ const Programme = () => {
                                             )
 
                                         })}
-
                                     </Checkbox.Group>
                                 </Row>
                             </Grid>
@@ -242,8 +241,9 @@ const Programme = () => {
                             <Spacer x={1} />
                             <Row >
                                 <Text color='#422222' h1 size={34}>
-                                    Opening Keynote : <br />
-                                    Persisting in the Fight for change
+                                    Future of the Sector : <br />
+                                    Understanding the Trends <br />
+                                    That Will Shape Our Tomorrow <br />
                                 </Text>
                             </Row>
                             <Spacer x={1} />
@@ -256,9 +256,7 @@ const Programme = () => {
                                     <Row css={{ backgroundColor: "$red200", width: "250px", padding: "7px" }}>LEADERSHIP INSIGHTS</Row>
                                 </Row>
                                 <Spacer x={1} />
-                                <Text color='#8C7979'>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex alias molestias, eius, hic est similique ducimus itaque maiores, quos delectus maxime. Laboriosam ad ullam illum consectetur eos officia facilis numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, inventore?
-                                </Text>
+
                                 <Spacer y={2} />
                                 <Row css={{ paddingLeft: "70px" }}>
                                     <Text size={12}>
