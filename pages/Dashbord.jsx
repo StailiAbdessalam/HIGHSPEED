@@ -1,6 +1,7 @@
 import { Col, Grid, Image, Row, Spacer, Text } from '@nextui-org/react'
 import React from 'react'
 import ReactPlayer from 'react-player'
+import Dowloanding from '../components/dowloanding'
 const Dashbord = () => {
     return (
         <>
@@ -58,7 +59,7 @@ const Dashbord = () => {
                                 <Row>
 
                                     <Spacer x={1} />
-                                    <Text size={22} h2>11° édition</Text>
+                                    <Text color='#422222' size={22} h2>11° édition</Text>
                                 </Row>
                                 <Spacer y={3 / 2} />
                                 <Row>
@@ -71,13 +72,93 @@ const Dashbord = () => {
                             </Col>
                             {/* image the world congress */}
                             <Col>
+                                <Spacer y={3 / 2} />
                                 <Image
-                                    height={400}
+                                    height="290px"
                                     width="100%"
-                                    src="https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
+                                    src="https://www.fertilizantesyabonos.com/francais/wp-content/uploads/biostimulants-world-congress-2.jpg"
                                     alt="Default Image"
                                     objectFit="cover" />
                             </Col>
+
+                            <Col>
+                                {/* the world congress text  */}
+                                <Spacer y={3 / 2} />
+                                <Row>
+
+                                    <Spacer x={1} />
+                                    <Text color='#422222' size={22} h2>The World Congress <br /> on High-Speed Rail </Text>
+                                </Row>
+                                <Spacer y={3 / 2} />
+                                <Row>
+                                    <Spacer x={1} />
+                                    <Text>
+                                        Lorem UIC  dolor, sit amet consectetur adipisicing elit. Nobis error eligendi, sit ipsa quis architecto autem at ipsam, enim a nostrum aliquam voluptatum . <br /><br />
+                                        vel veritatis? Veritatis earum sapiente cum ullam, non quas perspiciatis porro neque quidem dicta, facilis obcaecati nihil quia praesentium? Nihil temporibus cum quos beatae amet, doloribus optio? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, ullam ex blanditiis explicabo optio animi eaque inventore totam nihil iste.
+                                    </Text>
+                                </Row>
+                                <Spacer y={3 / 2} />
+                            </Col>
+                            {/* button the dowloading */}
+                            <Dowloanding />
+                            <Spacer y={3 / 2} />
+
+                            {/* grid des images */}
+                            <Col>
+                                <Row>
+                                    <Image
+                                        width={"100%"}
+                                        src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
+                                        alt="Default Image"
+                                        objectFit="cover"
+                                    />
+                                    <Col>
+                                        <Image
+                                            width={"100%"}
+                                            src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
+                                            alt="Default Image"
+                                            objectFit="cover"
+                                        />
+                                        <Image
+                                            width={"100%"}
+                                            src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
+                                            alt="Default Image"
+                                            objectFit="cover"
+                                        />
+                                    </Col>
+                                </Row>
+                                <Spacer y={3 / 2} />
+                            </Col>
+                            {/* partie green */}
+                            <Row css={{ background: "#064030", padding: "20px", '@sm': { padding: "80px", paddingTop: "60px" } }}>
+                                <Col>
+                                    <Text color="#659E4D" css={{ fontSize: "15px", '@sm': { fontSize: "18px" } }}>
+                                        11TH UIC HIGH-SPEED CONGRESS
+                                    </Text>
+                                    <Spacer y={1} />
+                                    <Text color="#EEFAE5" weight="bold" css={{ lineHeight: "26px", fontSize: "20px", '@sm': { lineHeight: "54px", fontSize: "40px" } }}>
+                                        "HIGH-SPEED RAIL:
+                                        <br />
+                                        THE RIGHT SPEED FOR OUR PLANET"
+                                    </Text>
+                                </Col>
+                            </Row>
+
+                            <Spacer y={3 / 2} />
+                            <Col css={{ backgroundColor: "#EEFAE5", padding: "60px" }}>
+                                <Text>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eaque nesciunt iure laboriosam placeat temporibus nisi, quo consequatur reiciendis modi laudantium. Excepturi molestias quod error saepe atque repellendus hic ullam in maiores sequi rem architecto eveniet veritatis fuga laudantium alias nulla, iure modi veniam accusantium vero officiis deserunt possimus culpa nostrum odio. Corporis perspiciatis magnam impedit!
+                                </Text>
+                                <Spacer y={2} />
+                                <Text h2 color='#83BD56'>
+                                    AZIZ AKHANNOUCH
+                                </Text >
+                                <Text color='#348C79'>
+                                    Chef du gouvernement du Maroc
+                                </Text>
+                            </Col>
+
+
                         </Col>
                     </Grid>
 
