@@ -1,4 +1,4 @@
-import { Checkbox, Col, Grid, Radio, Row, Spacer, Text } from '@nextui-org/react'
+import { Checkbox, Col, Grid, Image, Radio, Row, Spacer, Text } from '@nextui-org/react'
 import React from 'react'
 import Akhanouch from '../components/akhanouch'
 const Programme = () => {
@@ -7,12 +7,10 @@ const Programme = () => {
         Thematique: ["Rolling Stock", "conception and desing", "Functional and technical specificatio", "train architecture", "seat capacity"],
     };
     return (
-        <Row css={{ width: "100%" }}>
-
+        <Row>
             <Grid.Container >
                 {/* filter catégorie and Thematique */}
-
-                <Grid xs={12} md={4}>
+                <Grid xs={12} md={4} >
                     <Spacer x={4} />
                     <Col >
                         <Spacer y={2} />
@@ -25,6 +23,7 @@ const Programme = () => {
                         <Grid.Container>
                             {/* <Spacer y={2} /> */}
                             <Grid xs={12} sm={6} md={12} >
+
                                 <Text h6 size={16}>Catégorie</Text>
                                 <Spacer x={2} />
                                 <Row css={{ width: "100%" }} >
@@ -64,13 +63,11 @@ const Programme = () => {
                                     </Checkbox.Group>
                                 </Row>
                             </Grid>
+
                         </Grid.Container>
                     </Col>
                 </Grid>
-
-
-
-
+                {/* article the programme */}
                 <Grid xs={12} md={15 / 2} >
                     <Col css={{ width: "100%" }}>
                         {/* partie one  */}
@@ -98,14 +95,17 @@ const Programme = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex alias molestias, eius, hic est similique ducimus itaque maiores, quos delectus maxime. Laboriosam ad ullam illum consectetur eos officia facilis numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, inventore?
                                 </Text>
                                 <Spacer y={2} />
-                                <Row css={{ paddingLeft: "70px" }}>
-                                    <Text size={12}>
-                                        En savoir plus
-                                    </Text>
+                                <Row>
+                                    <Row css={{ height: "2px", width: "60px", backgroundColor: "red", marginTop: "6px" }}></Row>
+                                    <Spacer x={1/2} />
+                                    <Row >
+                                        <Text size={12}>
+                                            En savoir plus
+                                        </Text>
+                                    </Row>
                                 </Row>
                             </Col>
                         </Col>
-
                         <Row>
                         </Row>
                         <Spacer y={2} />
@@ -167,10 +167,14 @@ const Programme = () => {
                                     </Col>
                                 </Grid>
                                 <Spacer y={3} />
-                                <Row css={{ paddingLeft: "70px" }}>
-                                    <Text size={12}>
-                                        Fermer
-                                    </Text>
+                                <Row>
+                                    <Row css={{ height: "2px", width: "60px", backgroundColor: "red", marginTop: "6px" }}></Row>
+                                    <Spacer x={1/2} />
+                                    <Row >
+                                        <Text size={12}>
+                                            Fermer
+                                        </Text>
+                                    </Row>
                                 </Row>
                             </Grid.Container>
 
@@ -202,10 +206,14 @@ const Programme = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex alias molestias, eius, hic est similique ducimus itaque maiores, quos delectus maxime. Laboriosam ad ullam illum consectetur eos officia facilis numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, inventore?
                                 </Text>
                                 <Spacer y={2} />
-                                <Row css={{ paddingLeft: "70px" }}>
-                                    <Text size={12}>
-                                        En savoir plus
-                                    </Text>
+                                <Row>
+                                    <Row css={{ height: "2px", width: "60px", backgroundColor: "red", marginTop: "6px" }}></Row>
+                                    <Spacer x={1/2} />
+                                    <Row >
+                                        <Text size={12}>
+                                            En savoir plus
+                                        </Text>
+                                    </Row>
                                 </Row>
                             </Col>
                         </Col>
@@ -227,6 +235,7 @@ const Programme = () => {
                                     <Text css={{ backgroundColor: "#83BD56", padding: "10px 30px" }}>Coffee</Text>
                                     <Spacer x={1} />
                                     <Text css={{ backgroundColor: "#83BD56", padding: "10px 30px" }}>Buffet</Text>
+
                                 </Row>
                             </Col>
                             <Row>
@@ -258,15 +267,20 @@ const Programme = () => {
                                 <Spacer x={1} />
 
                                 <Spacer y={2} />
-                                <Row css={{ paddingLeft: "70px" }}>
-                                    <Text size={12}>
-                                        En savoir plus
-                                    </Text>
+                                <Row>
+                                    <Row css={{ height: "2px", width: "60px", backgroundColor: "red", marginTop: "6px" }}></Row>
+                                    <Spacer x={1/2} />
+                                    <Row >
+                                        <Text size={12}>
+                                            En savoir plus
+                                        </Text>
+                                    </Row>
                                 </Row>
                             </Col>
                         </Col>
                     </Col>
                 </Grid>
+
             </Grid.Container>
 
 
