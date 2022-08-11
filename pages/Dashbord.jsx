@@ -1,8 +1,19 @@
-import { Col, Grid, Image, Row, Spacer, Text } from '@nextui-org/react'
+import { Button, Col, Container, Grid, Image, Link, Modal, Row, Spacer, Text } from '@nextui-org/react'
 import React from 'react'
 import ReactPlayer from 'react-player'
 import Dowloanding from '../components/dowloanding'
 const Dashbord = () => {
+    const [image, setImage] = React.useState(null)
+    const [visible, setVisible] = React.useState(false);
+    const handler = (e) => {
+        setVisible(true);
+        setImage(e.target.src);
+
+    }
+    const closeHandler = () => {
+        setVisible(false);
+        console.log("closed");
+    };
     return (
         <>
             <Spacer y={2} />
@@ -12,31 +23,52 @@ const Dashbord = () => {
                     <Grid xs={12} sm={7 / 2}>
                         <Col>
                             <Text size={23} h4>Le congrés</Text>
+                            <Spacer y={1} />
                             <Col >
-                                <Spacer x={10} />
-                                <Row css={{ cursor: "pointer" }}>
-                                    <Row css={{ height: "2px", width: "30px", backgroundColor: "red", marginTop: "8px" }}></Row>
-                                    <Spacer x={1 / 3} />
-                                    <Text>11° édition</Text>
-                                </Row>
-                                <Spacer x={2} />
-                                <Row css={{ cursor: "pointer" }}>
-                                    <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
-                                    <Spacer x={1 / 3} />
-                                    <Text color='gray'>Organisateurs</Text>
-                                </Row >
-                                <Spacer x={2} />
-                                <Row css={{ cursor: "pointer" }}>
-                                    <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
-                                    <Spacer x={1 / 3} />
-                                    <Text color='gray'>Programme</Text>
-                                </Row >
-                                <Spacer x={2} />
-                                <Row css={{ cursor: "pointer" }}>
-                                    <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
-                                    <Spacer x={1 / 3} />
-                                    <Text color='gray'>intervenants</Text>
-                                </Row>
+
+                                <Grid.Container>
+                                    <Spacer y={3} />
+                                    <Grid xs={5 / 2} sm={12}>
+                                        <Spacer x={2} />
+                                        <Row css={{ cursor: "pointer" }}>
+                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "red", marginTop: "8px" }}></Row>
+                                            <Spacer x={1 / 3} />
+                                            <Text>11°édition</Text>
+                                        </Row>
+                                        <Spacer y={2} />
+                                    </Grid>
+                                    <Grid xs={5 / 2} sm={12}>
+                                        <Spacer x={2} />
+                                        <Row css={{ cursor: "pointer" }}>
+                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Spacer x={1 / 3} />
+                                            <Text color='gray'>Organisateurs</Text>
+                                        </Row >
+                                        <Spacer y={2} />
+
+                                    </Grid>
+                                    <Grid xs={5 / 2} sm={12}>
+                                        <Spacer x={2} />
+                                        <Row css={{ cursor: "pointer" }}>
+                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Spacer x={1 / 3} />
+                                            <Text color='gray'>Programme</Text>
+                                        </Row >
+                                        <Spacer y={2} />
+
+                                    </Grid>
+                                    <Grid xs={5 / 2} sm={12}>
+                                        <Spacer x={2} />
+                                        <Row css={{ cursor: "pointer" }}>
+                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Spacer x={1 / 3} />
+                                            <Text color='gray'>intervenants</Text>
+                                        </Row>
+                                        <Spacer y={2} />
+                                    </Grid>
+
+
+                                </Grid.Container>
                             </Col>
                         </Col>
                     </Grid>
@@ -107,24 +139,55 @@ const Dashbord = () => {
                             <Col>
                                 <Row>
                                     <Image
+                                        css={{ height: "622px", cursor: 'pointer' }}
                                         width={"100%"}
+                                        onClick={e => handler(e)}
                                         src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
                                         alt="Default Image"
                                         objectFit="cover"
                                     />
+                                    <Spacer x={1 / 3} />
                                     <Col>
                                         <Image
-                                            width={"100%"}
-                                            src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
+                                            onClick={e => handler(e)}
+                                            css={{ height: "308px", cursor: 'pointer' }}
+                                            src="https://static.lpnt.fr/images/2021/09/07/22151000lpw-22151048-article-jpg_8212426_1250x625.jpg"
                                             alt="Default Image"
                                             objectFit="cover"
                                         />
-                                        <Image
-                                            width={"100%"}
-                                            src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
-                                            alt="Default Image"
-                                            objectFit="cover"
-                                        />
+                                        <Spacer y={1 / 3} />
+                                        <Row>
+                                            <Image
+                                                onClick={e => handler(e)}
+                                                css={{ height: "308px", cursor: 'pointer' }}
+                                                width={"100%"}
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtqFb_m68zSYmLsKdIV8LP4kCs0IA2zSPMdJjuIrr7xA948ccTxVY062nTNuP5peeXPw&usqp=CAU   "
+                                                alt="Default Image"
+                                                objectFit="cover"
+                                            />
+                                            <Spacer x={1 / 3} />
+                                            <Row css={{ cursor: 'pointer' }} onClick={(e) => handler(e = { target: { src: "https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1" } })}>
+                                                <Image
+                                                    css={{ height: "308px", position: "relative", cursor: 'pointer' }}
+                                                    width={"100%"}
+                                                    src="https://vivremadrid.com/wp-content/webpc-passthru.php?src=https://vivremadrid.com/wp-content/uploads/2021/01/voyager-en-train-en-espagne.png&nocache=1"
+                                                    alt="Default Image"
+                                                    objectFit="cover"
+                                                />
+                                                {/* <Row css={{position:"absolute",backgroundColor:"#750B11" ,width:"100%",height:"100%",opacity:"1"}}></Row> */}
+                                                <Row css={{ backgroundColor: "rgba(134, 22, 26, 0.725)", width: "100%", height: "100%", position: "absolute", top: "0" }}>
+                                                    <Text zIndex="90">
+                                                    </Text>
+                                                </Row>
+                                                <Container zIndex="100" css={{ position: "absolute", top: "5%", width: "100%", maxWidth: "100%", height: "100%" }}>
+                                                    <Row css={{ height: "100%" }} justify="center" align="center">
+                                                        <Text h1 size={60} color="$white">
+                                                            +15
+                                                        </Text>
+                                                    </Row>
+                                                </Container>
+                                            </Row>
+                                        </Row>
                                     </Col>
                                 </Row>
                                 <Spacer y={3 / 2} />
@@ -143,7 +206,6 @@ const Dashbord = () => {
                                     </Text>
                                 </Col>
                             </Row>
-
                             <Spacer y={3 / 2} />
                             <Col css={{ backgroundColor: "#EEFAE5", padding: "60px" }}>
                                 <Text>
@@ -163,6 +225,28 @@ const Dashbord = () => {
                     </Grid>
 
                 </Grid.Container>
+
+
+
+
+                <div>
+                    <Modal noPadding open={visible} onClose={closeHandler}>
+                        <Modal.Header
+                            css={{ position: "absolute", zIndex: "$1", top: 5, right: 8, }}
+                        >
+                        </Modal.Header>
+                        <Modal.Body css={{ width: "100%", height: "500px" }}>
+                            <Image
+                                showSkeleton
+                                src={image}
+                                width={400}
+                                height={490}
+                            />
+                        </Modal.Body>
+                    </Modal>
+                </div>
+
+
             </Row>
         </>
 
