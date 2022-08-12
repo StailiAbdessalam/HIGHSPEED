@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Col, Row, Button, Text, Grid, Spacer } from "@nextui-org/react";
+import { Card, Col, Row, Button, Text, Grid, Spacer, Image } from "@nextui-org/react";
 import { accomdition, activates, transport } from "../dash/data"
 import PageVide from '../../components/PageVide';
 
@@ -13,31 +13,29 @@ const Accommodation = () => {
       <Row css={{ backgroundColor: "gray", height: "1px", width: "100%", margin: "8px" }}></Row>
       <Spacer size="8px"></Spacer>
       <Col></Col>
-      {/* the is acomdition */}
+      {/* the is activates */}
       {activates.map((item, index) => {
         return (
           <Grid xs={12} sm={6}>
-            <Card css={{ w: "100%", h: "400px", margin: "15px" }}>
-              <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-                <Col>
+            <Col css={{ w: "100%", height: "400px", margin: "30px", position: "relative" }}>
+              <Col css={{ position: "absolute", zIndex: 1, top: 5 }}>
+                <Col css={{ margin: "8px" }}>
                   <Text size={12} weight="bold" transform="uppercase" color="white">
-                    Your day your way
+                    {item.location}
                   </Text>
                   <Text h3 color="white">
                     {item.name}
                   </Text>
                 </Col>
-              </Card.Header>
-              <Card.Body css={{ p: 0 }}>
-                <Card.Image
+              </Col>
+              <Col css={{ p: 0 }}>
+                <Image css={{ width: "100%", height: "400px" }}
                   src={item.image}
                   objectFit="cover"
-                  width="100%"
-                  height="100%"
                   alt="Relaxing app background"
                 />
-              </Card.Body>
-              <Card.Footer
+              </Col>
+              <Col
                 isBlurred
                 css={{
                   position: "absolute",
@@ -47,7 +45,9 @@ const Accommodation = () => {
                   zIndex: 1,
                 }}
               >
-                <Row>
+                <Spacer y={2 / 3} />
+                <Row css={{ height: "50px" }}>
+                  <Spacer x={1} />
                   <Col>
                     <Row>
                       <Col>
@@ -81,12 +81,14 @@ const Accommodation = () => {
                     </Row>
                   </Col>
                 </Row>
-              </Card.Footer>
-            </Card>
+              </Col>
+            </Col>
 
           </Grid>
         )
       })}
+
+
 
       <Row css={{ marginLeft: "8px" }}>
         <Text size={20}>Accomdition</Text>
@@ -94,33 +96,39 @@ const Accommodation = () => {
       <Row css={{ backgroundColor: "gray", height: "1px", width: "100%", margin: "8px" }}></Row>
       <Spacer size="8px"></Spacer>
       <Col></Col>
-      {/* the is activites */}
+      {/* the is Accomdition */}
+
+
+
+
+
+
+
       {!accomdition.length && <PageVide children="kkknoivdniovs" />}
       {accomdition.map((item, index) => {
         return (
           <Grid xs={12} sm={6} md={4}>
             <Spacer y={2} />
-            <Card css={{ w: "100%", h: "400px", marginBottom: "15px" }}>
-              <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-                <Col >
+            <Col css={{ w: "100%", h: "400px", marginBottom: "30px", position: "relative" }}>
+              <Col css={{ position: "absolute", zIndex: 1, top: 5 }}>
+                <Col css={{ margin: "8px" }} >
                   <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-                    Hotel
+                    {item.location}
                   </Text>
                   <Text h3 color="black">
-                    {item.name}
+                    Hotel :  {item.name}
                   </Text>
                 </Col>
-              </Card.Header>
-              <Card.Body css={{ p: 0 }}>
-                <Card.Image
+              </Col>
+              <Col css={{ p: 0 }}>
+                <Image
+                  css={{ width: "100%", height: "400px" }}
                   src={item.image}
-                  width="100%"
-                  height="100%"
                   objectFit="cover"
                   alt="Card example background"
                 />
-              </Card.Body>
-              <Card.Footer
+              </Col>
+              <Col
                 isBlurred
                 css={{
                   position: "absolute",
@@ -130,13 +138,15 @@ const Accommodation = () => {
                   zIndex: 1,
                 }}
               >
-                <Row>
+                <Spacer y={2 / 3} />
+                <Row css={{ height: "50px" }}>
+                  <Spacer x={1} />
                   <Col>
-                    <Text color="#000" size={12}>
-                      {item.location}
+                    <Text h2 color="#000" size={13}>
+                      check in : {item.checkin}
                     </Text>
                     <Text color="#000" size={12}>
-                      rating : {item.rating} / 5
+                      check out : {item.checkout}
                     </Text>
                     <Text color="#000" size={12}>
                       stars : {item.stars} ⭐
@@ -157,11 +167,15 @@ const Accommodation = () => {
                     </Row>
                   </Col>
                 </Row>
-              </Card.Footer>
-            </Card>
+              </Col>
+            </Col>
           </Grid>
         )
       })}
+
+
+
+
       <Row css={{ marginLeft: "8px" }}>
         <Text size={20}>transfers</Text>
       </Row>
@@ -172,31 +186,26 @@ const Accommodation = () => {
       <Grid.Container gap={2} justify="flex-start">
         {transport.map((item, index) => (
           <Grid xs={6} sm={3} key={index}>
-            <Card isPressable>
-              <Card.Body css={{ p: 0 }}>
-                <Card.Image
-                  src={item.img}
-                  objectFit="cover"
-                  width="100%"
-                  height={140}
-                  alt={item.title}
-                />
-              </Card.Body>
-              <Card.Footer css={{ justifyItems: "flex-start" }}>
-                <Row wrap="wrap" justify="space-between" align="center">
-                  <Text b>{item.title}</Text>
-                  <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
+            <Col css={{ backgroundColor: "#A33237", width: "100%", height: "120px" }}>
+              <Spacer y={2 / 3} />
+              <Row css={{ display: "flex", justifyContent: "center" }}>
+                <Text h1 size={20} >{item.title}</Text>
+              </Row>
+              <Spacer y={1} />
+              <Row>
+                <Spacer size="8px"></Spacer>
+                <Text color='white' h3 size={12}>from : {item.from}</Text>
+                <Spacer size="8px"></Spacer>
+                <Text color='white' size={12}>to : {item.to}</Text>
+              </Row>
+              <Col css={{ justifyItems: "flex-center" }}>
+                <Row wrap="wrap" justify="center" align="center">
+                  <Text css={{ color: "black", fontWeight: "$semibold", fontSize: "$md" }}>
                     {item.price}
                   </Text>
                 </Row>
-              </Card.Footer>
-              <Row>
-                <Spacer size="8px"></Spacer>
-                <Text h3 size={12}>from : {item.from}</Text>
-                <Spacer size="8px"></Spacer>
-                <Text size={12}>to : {item.to}</Text>
-              </Row>
-            </Card>
+              </Col>
+            </Col>
           </Grid>
         ))}
       </Grid.Container>

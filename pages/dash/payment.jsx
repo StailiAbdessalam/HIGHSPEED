@@ -1,8 +1,11 @@
+import { Row, Text } from '@nextui-org/react'
 import React from 'react'
 
 const payment = () => {
   return (
-    <div>payment</div>
+    <Row>
+      <Text Size={20}>Payment </Text>
+    </Row>
   )
 }
 
