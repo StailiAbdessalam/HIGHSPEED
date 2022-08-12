@@ -1,8 +1,44 @@
 import { Button, Col, Container, Grid, Image, Link, Modal, Row, Spacer, Text } from '@nextui-org/react'
-import React from 'react'
-const Dashbord = () => {
-    const [image, setImage] = React.useState(null)
-    const [visible, setVisible] = React.useState(false);
+import React, { useEffect } from 'react'
+import Dashbord from './dash/dashbord'
+import Accommodation from "./dash/Accommodation"
+import Payment from "./dash/payment"
+import Activates from "./dash/activates"
+import Transfers from "./dash/transfers"
+
+const EspacePriver = () => {
+    const [dashboard, setDashboard] = React.useState(true)
+    const [accommodation, setAccommodation] = React.useState(false)
+    const [activates, setActivates] = React.useState(false)
+    const [transfers, setTransfers] = React.useState(false)
+    const [payment, setPayment] = React.useState(false)
+    // const array = [dashboard, accommodation, activates, transfers, payment];
+    const changePage = (index) => {
+        setActivates(false)
+        setTransfers(false)
+        setPayment(false)
+        setDashboard(false)
+        setAccommodation(false)
+        switch (index) {
+            case "dashboard":
+                setDashboard(true)
+                break;
+            case "accommodation":
+                setAccommodation(true)
+                break;
+            case "activates":
+                setActivates(true)
+                break;
+            case "transfers":
+                setTransfers(true)
+                break;
+            case "payment":
+                setPayment(true)
+                break;
+            default:
+                break;
+        }
+    }
     const handler = (e) => {
         setVisible(true);
         setImage(e.target.src);
@@ -23,70 +59,69 @@ const Dashbord = () => {
                     <Row>
                         <Spacer y={2} />
                     </Row>
-
                     <Spacer x={2} />
                     <Grid xs={12} sm={7 / 2}>
                         <Col>
                             <Text size={23} h4>Le congrés</Text>
                             <Spacer y={1} />
                             <Col >
-
                                 <Grid.Container>
-                                    <Spacer y={3} />
-                                    <Grid xs={5 / 2} sm={12}>
+                                    {/* <Spacer y={3} /> */}
+                                    <Grid onClick={() => { changePage("dashboard") }} xs={12 / 5} sm={12}>
                                         <Spacer x={2} />
                                         <Row css={{ cursor: "pointer" }}>
-                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "red", marginTop: "8px" }}></Row>
+                                            <Row css={ dashboard ? { backgroundColor: "red", height: "2px", width: "30px", marginTop: "8px" } : { backgroundColor: "Gray", height: "2px", width: "30px", marginTop: "8px" }}></Row>
                                             <Spacer x={1 / 3} />
-                                            <Text>dashboard</Text>
+                                            <Text css={dashboard ? { color: "Black" } : { color: "Gray" }}>dashboard</Text>
                                         </Row>
                                         <Spacer y={2} />
                                     </Grid>
-                                    <Grid xs={5 / 2} sm={12}>
+
+                                    <Grid onClick={() => { changePage("accommodation") }} xs={12 / 5} sm={12} >
                                         <Spacer x={2} />
                                         <Row css={{ cursor: "pointer" }}>
-                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Row css={accommodation ? { backgroundColor: "red", height: "2px", width: "30px", marginTop: "8px" } : { backgroundColor: "Gray", height: "2px", width: "30px", marginTop: "8px" }}></Row>
                                             <Spacer x={1 / 3} />
-                                            <Text color='gray'>Accommodation</Text>
+                                            <Text css={accommodation ? { color: "Black" } : { color: "Gray" }} >Accommodation</Text>
                                         </Row >
                                         <Spacer y={2} />
-
                                     </Grid>
-                                    <Grid xs={5 / 2} sm={12}>
+
+                                    <Grid onClick={() => { changePage("activates") }} xs={12 / 5} sm={12}>
                                         <Spacer x={2} />
                                         <Row css={{ cursor: "pointer" }}>
-                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Row css={activates ? { backgroundColor: "red", height: "2px", width: "30px", marginTop: "8px" } : { backgroundColor: "Gray", height: "2px", width: "30px", marginTop: "8px" }}></Row>
                                             <Spacer x={1 / 3} />
-                                            <Text color='gray'>activates</Text>
+                                            <Text css={activates ? { color: "Black" } : { color: "Gray" }}>activates</Text>
                                         </Row >
                                         <Spacer y={2} />
+                                    </Grid>
 
-                                    </Grid>
-                                    <Grid xs={5 / 2} sm={12}>
+                                    <Grid onClick={() => { changePage("transfers") }} xs={12 / 5} sm={12}>
                                         <Spacer x={2} />
                                         <Row css={{ cursor: "pointer" }}>
-                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
+                                            <Row css={transfers ? { backgroundColor: "red", height: "2px", width: "30px", marginTop: "8px" } : { backgroundColor: "Gray", height: "2px", width: "30px", marginTop: "8px" }}></Row>
                                             <Spacer x={1 / 3} />
-                                            <Text color='gray'>transfers</Text>
-                                        </Row>
-                                        <Spacer y={2} />
-                                    </Grid>
-                                    <Grid xs={5 / 2} sm={12}>
-                                        <Spacer x={2} />
-                                        <Row css={{ cursor: "pointer" }}>
-                                            <Row css={{ height: "2px", width: "30px", backgroundColor: "gray", marginTop: "8px" }}></Row>
-                                            <Spacer x={1 / 3} />
-                                            <Text color='gray'>payment</Text>
+                                            <Text css={transfers ? { color: "Black" } : { color: "Gray" }}>transfers</Text>
                                         </Row>
                                         <Spacer y={2} />
                                     </Grid>
 
+                                    <Grid onClick={() => { changePage("payment") }} xs={12 / 5} sm={12}>
+                                        <Spacer x={2} />
+                                        <Row css={{ cursor: "pointer" }}>
+                                            <Row css={payment ? { backgroundColor: "red", height: "2px", width: "30px", marginTop: "8px" } : { backgroundColor: "Gray", height: "2px", width: "30px", marginTop: "8px" }}></Row>
+                                            <Spacer x={1 / 3} />
+                                            <Text css={payment ? { color: 'Black' } : { color: 'gray' }}>payment</Text>
+                                        </Row>
+                                        <Spacer y={2} />
 
+                                    </Grid>
                                 </Grid.Container>
                             </Col>
                         </Col>
                     </Grid>
-
+                    <Spacer y={2} />
                     <Grid xs={12} sm={15 / 2}>
                         {/* <Col>
                             <Col css={{ padding: "0 20px" }}>
@@ -236,33 +271,17 @@ const Dashbord = () => {
 
 
                         </Col> */}
-
-
+                        {dashboard && <Dashbord />}
+                        {accommodation && <Accommodation />}
+                        {transfers && <Transfers />}
+                        {payment && <Payment />}
+                        {activates && <Activates />}
                     </Grid>
 
                 </Grid.Container>
-
-                <div>
-                    <Modal noPadding open={visible} onClose={closeHandler}>
-                        <Modal.Header
-                            css={{ position: "absolute", zIndex: "$1", top: 5, right: 8, }}
-                        >
-                        </Modal.Header>
-                        <Modal.Body css={{ width: "100%", height: "500px" }}>
-                            <Image
-                                showSkeleton
-                                src={image}
-                                width={400}
-                                height={490}
-                            />
-                        </Modal.Body>
-                    </Modal>
-                </div>
-
-
             </Row>
         </>
     )
 }
 
-export default Dashbord
+export default EspacePriver
